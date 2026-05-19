@@ -3,14 +3,11 @@ import axios from "axios";
 
 function Login({ setIsLoggedIn }) {
 
-  const [username, setUsername] =
-    useState("");
+  const [username, setUsername] = useState("");
 
-  const [password, setPassword] =
-    useState("");
+  const [password, setPassword] = useState("");
 
-  const [loading, setLoading] =
-    useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
 
@@ -21,7 +18,7 @@ function Login({ setIsLoggedIn }) {
     try {
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/token/",
+        "https://finance-ai-backend-q477.onrender.com/api/token/",
         {
           username,
           password,
