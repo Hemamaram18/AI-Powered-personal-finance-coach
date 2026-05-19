@@ -42,6 +42,11 @@ function TransactionForm({
 
     if (editData) {
 
+      console.log(
+        "EDIT DATA:",
+        editData
+      );
+
       setMerchant(
         editData.merchant || ""
       );
@@ -58,8 +63,13 @@ function TransactionForm({
         editData.type || ""
       );
 
+      // FIX DATE FORMAT
       setDate(
-        editData.date || ""
+
+        editData.date
+          ? editData.date.split("T")[0]
+          : ""
+
       );
 
       setDescription(
@@ -96,6 +106,11 @@ function TransactionForm({
       // UPDATE
       if (editData) {
 
+        console.log(
+          "UPDATE ID:",
+          editData.id
+        );
+
         await axios.patch(
 
           `http://127.0.0.1:8000/api/transactions/update/${editData.id}/`,
@@ -115,9 +130,6 @@ function TransactionForm({
         );
 
         setEditData(null);
-
-        // PAGE REFRESH
-        window.location.reload();
 
       }
 
@@ -142,9 +154,6 @@ function TransactionForm({
           "Transaction Added Successfully"
         );
 
-        // PAGE REFRESH
-        window.location.reload();
-
       }
 
       // RESET
@@ -155,7 +164,7 @@ function TransactionForm({
       setDate("");
       setDescription("");
 
-      // OPTIONAL LIVE REFRESH
+      // LIVE REFRESH
       if (fetchTransactions) {
 
         await fetchTransactions();
@@ -170,22 +179,27 @@ function TransactionForm({
 
     } catch (error) {
 
-  console.log(
-    "FULL ERROR:",
-    error.response?.data
-  );
+      console.log(
+        "FULL ERROR:",
+        error.response?.data
+      );
 
-  toast.error(
+      console.log(
+        "STATUS:",
+        error.response?.status
+      );
 
-    error.response?.data?.error ||
+      toast.error(
 
-    error.response?.data?.detail ||
+        error.response?.data?.error ||
 
-    "Something went wrong"
+        error.response?.data?.detail ||
 
-  );
+        "Something went wrong"
 
-}
+      );
+
+    }
 
   };
 
@@ -347,9 +361,9 @@ function TransactionForm({
             editData
             ? "Update Transaction"
             : "Add Transaction"
-          }
+}
 
-        </button>
+        </button>    
 
       </form>
 

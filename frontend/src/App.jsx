@@ -35,7 +35,6 @@ import RecentActivity from "./components/RecentActivity";
 
 import MonthlyTrends from "./components/MonthlyTrends";
 
-
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] =
@@ -49,9 +48,7 @@ function App() {
   // THEME STATE
   const [darkMode, setDarkMode] =
     useState(
-
       localStorage.getItem("theme") !== "light"
-
     );
 
   // SAVE THEME
@@ -145,11 +142,9 @@ function App() {
             >
 
               {
-
                 darkMode
                   ? "☀️ Light"
                   : "🌙 Dark"
-
               }
 
             </button>
@@ -171,13 +166,9 @@ function App() {
         {/* DASHBOARD */}
         <div
           className={
-
             darkMode
-
               ? "bg-gray-900/60 backdrop-blur-lg rounded-3xl p-6 shadow-2xl border border-gray-800"
-
               : "bg-white rounded-3xl p-6 shadow-2xl border border-gray-300"
-
           }
         >
 
@@ -186,7 +177,7 @@ function App() {
         </div>
 
         {/* FORM + GOALS + BUDGET */}
-        <div className="grid md:grid-cols-3 gap-8 mt-8">
+        <div className="grid md:grid-cols-3 gap-8 mt-8 items-start">
 
           {/* TRANSACTION FORM */}
           <div
@@ -198,7 +189,8 @@ function App() {
           >
 
             <TransactionForm
-              refreshData={refreshData}
+              fetchTransactions={refreshData}
+              fetchDashboard={refreshData}
             />
 
           </div>
@@ -254,7 +246,7 @@ function App() {
         </div>
 
         {/* CHART + AI */}
-        <div className="grid md:grid-cols-2 gap-8 mt-8">
+        <div className="grid md:grid-cols-2 gap-8 mt-8 items-start">
 
           {/* SPENDING CHART */}
           <div
@@ -289,7 +281,7 @@ function App() {
         </div>
 
         {/* ANALYTICS + PREDICTION */}
-        <div className="grid md:grid-cols-2 gap-8 mt-8">
+        <div className="grid md:grid-cols-2 gap-8 mt-8 items-start">
 
           {/* CATEGORY ANALYTICS */}
           <div
@@ -339,7 +331,7 @@ function App() {
         </div>
 
         {/* NOTIFICATIONS + RECENT */}
-        <div className="grid md:grid-cols-2 gap-8 mt-8 mb-10">
+        <div className="grid md:grid-cols-2 gap-8 mt-8 mb-10 items-start">
 
           {/* NOTIFICATIONS */}
           <div
