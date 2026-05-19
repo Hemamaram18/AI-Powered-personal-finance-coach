@@ -17,7 +17,11 @@ SECRET_KEY = 'django-insecure-svg1%pfy=a(crpm*&j_=42wd9_$abeh^4%a#cm^=q2gc6*=3x8
 
 DEBUG = False
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+ALLOWED_HOSTS = [
+    "finance-ai-backend-q477.onrender.com",
+    "127.0.0.1",
+    "localhost"
+]
 
 
 # CORS
