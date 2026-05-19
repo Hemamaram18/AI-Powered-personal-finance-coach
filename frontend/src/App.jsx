@@ -9,31 +9,31 @@ import {
 
 import "react-toastify/dist/ReactToastify.css";
 
-import Login from "./components/Login";
+import Login from "./Components/Login";
 
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./Components/Dashboard";
 
-import TransactionForm from "./components/TransactionForm";
+import TransactionForm from "./Components/TransactionForm";
 
-import TransactionList from "./components/TransactionList";
+import TransactionList from "./Components/TransactionList";
 
-import SpendingChart from "./components/SpendingChart";
+import SpendingChart from "./Components/SpendingChart";
 
-import AIRecommendation from "./components/AIRecommendation";
+import AIRecommendation from "./Components/AIRecommendation";
 
-import GoalTracker from "./components/GoalTracker";
+import GoalTracker from "./Components/GoalTracker";
 
-import BudgetTracker from "./components/BudgetTracker";
+import BudgetTracker from "./Components/BudgetTracker";
 
-import NotificationPanel from "./components/NotificationPanel";
+import NotificationPanel from "./Components/NotificationPanel";
 
-import SpendingPrediction from "./components/SpendingPrediction";
+import SpendingPrediction from "./Components/SpendingPrediction";
 
-import CategoryAnalytics from "./components/CategoryAnalytics";
+import CategoryAnalytics from "./Components/CategoryAnalytics";
 
-import RecentActivity from "./components/RecentActivity";
+import RecentActivity from "./Components/RecentActivity";
 
-import MonthlyTrends from "./components/MonthlyTrends";
+import MonthlyTrends from "./Components/MonthlyTrends";
 
 function App() {
 
