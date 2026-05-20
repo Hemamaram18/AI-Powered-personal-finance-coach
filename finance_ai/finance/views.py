@@ -82,6 +82,7 @@ def dashboard(request):
 @permission_classes([IsAuthenticated])
 def transactions(request):
 
+    # GET ALL TRANSACTIONS
     if request.method == "GET":
 
         transactions_data = (
@@ -99,6 +100,7 @@ def transactions(request):
             serializer.data
         )
 
+    # ADD TRANSACTION
     elif request.method == "POST":
 
         serializer = TransactionSerializer(
@@ -111,11 +113,10 @@ def transactions(request):
                 user=request.user
             )
 
-            # HIGH EXPENSE EMAIL ALERT
+            # EMAIL ALERT FOR HIGH EXPENSE
             if (
                 new_transaction.type == "Expense"
                 and new_transaction.amount >= 5000
-                and request.user.email
             ):
 
                 try:
@@ -133,168 +134,7 @@ def transactions(request):
 
                         settings.EMAIL_HOST_USER,
 
-                        [request.user.email],
-
-                        fail_silently=False
-
-                    )
-
-                    print(
-                        "HIGH EXPENSE EMAIL SENT"
-                    )
-
-                except Exception as e:
-
-                    print(
-                        "EMAIL ERROR:",
-                        e
-                    )
-
-            # BUDGET LIMIT EMAIL ALERT
-            if (
-                new_transaction.type == "Expense"
-                and request.user.email
-            ):
-
-                budgets = Budget.objects.filter(
-                    user=request.user,
-                    category=new_transaction.category
-                )
-
-                for budget in budgets:
-
-                    total_expense = (
-
-                        Transaction.objects.filter(
-                            user=request.user,
-                            category=budget.category,
-                            type="Expense"
-                        ).aggregate(
-                            Sum("amount")
-                        )["amount__sum"]
-
-                        or 0
-
-                    )
-
-                    if (
-                        total_expense >
-                        budget.monthly_limit
-                    ):
-
-                        exceeded_amount = (
-                            total_expense -
-                            budget.monthly_limit
-                        )
-
-                        try:
-
-                            send_mail(
-
-                                "Budget Alert - Limit Exceeded",
-
-                                (
-                                    f"Hello {request.user.username},\n\n"
-
-                                    "Budget Alert: Your monthly expenses "
-                                    "have exceeded your set budget limit.\n\n"
-
-                                    f"Category: {budget.category}\n"
-
-                                    f"Budget Limit: ₹{budget.monthly_limit}\n"
-
-                                    f"Current Expenses: ₹{total_expense}\n"
-
-                                    f"Exceeded Amount: ₹{exceeded_amount}\n\n"
-
-                                    "Please review your recent transactions "
-                                    "and spending habits.\n\n"
-
-                                    "Thank you,\n"
-                                    "Expense Tracker Team"
-                                ),
-
-                                settings.EMAIL_HOST_USER,
-
-                                [request.user.email],
-
-                                fail_silently=False
-
-                            )
-
-                            print(
-                                "BUDGET ALERT EMAIL SENT"
-                            )
-
-                        except Exception as e:
-
-                            print(
-                                "BUDGET EMAIL ERROR:",
-                                e
-                            )
-
-            return Response(
-                serializer.data,
-                status=201
-            )
-
-        return Response(
-            serializer.errors,
-            status=400
-        )
-
-    if request.method == "GET":
-
-        transactions_data = (
-            Transaction.objects.filter(
-                user=request.user
-            ).order_by("-id")
-        )
-
-        serializer = TransactionSerializer(
-            transactions_data,
-            many=True
-        )
-
-        return Response(
-            serializer.data
-        )
-
-    elif request.method == "POST":
-
-        serializer = TransactionSerializer(
-            data=request.data
-        )
-
-        if serializer.is_valid():
-
-            new_transaction = serializer.save(
-                user=request.user
-            )
-
-            # EMAIL ALERT FOR LARGE EXPENSE
-            if (
-                new_transaction.type == "Expense"
-                and new_transaction.amount >= 5000
-                and request.user.email
-            ):
-
-                try:
-
-                    send_mail(
-
-                        "Expense Alert",
-
-                        (
-                            f"Hello {request.user.username},\n\n"
-                            f"You added a high expense of ₹{new_transaction.amount} "
-                            f"for {new_transaction.category}.\n\n"
-                            "Please manage your spending carefully."
-                        ),
-
-                        settings.EMAIL_HOST_USER,
-
-                        [request.user.email],
+                        ["hemamaram703@gmail.com"],
 
                         fail_silently=False
 
