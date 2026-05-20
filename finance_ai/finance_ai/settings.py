@@ -189,7 +189,7 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'hemamaram703@gmail.com'
 
-EMAIL_HOST_PASSWORD = 'qjfj dqdx dbvo uoeh'
+EMAIL_HOST_PASSWORD = 'qjfjdqdxdbvouoeh'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 SERVER_EMAIL = EMAIL_HOST_USER
