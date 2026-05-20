@@ -113,7 +113,7 @@ function TransactionForm({
 
         await axios.patch(
 
-          `http://127.0.0.1:8000/api/transactions/update/${editData.id}/`,
+          `https://finance-ai-backend-q477.onrender.com/api/transactions/update/${editData.id}/`,
 
           transactionData,
 
@@ -138,7 +138,7 @@ function TransactionForm({
 
         await axios.post(
 
-          "http://127.0.0.1:8000/api/transactions/",
+          "https://finance-ai-backend-q477.onrender.com/api/transactions/",
 
           transactionData,
 

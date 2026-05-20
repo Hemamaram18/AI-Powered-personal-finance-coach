@@ -39,7 +39,7 @@ function Register({ setShowRegister }) {
     try {
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/register/",
+        "https://finance-ai-backend-q477.onrender.com/api/register/",
         {
 
           method: "POST",

@@ -45,7 +45,7 @@ function BudgetTracker({
 
       const response =
         await axios.get(
-          "http://127.0.0.1:8000/api/budget-analytics/",
+          "https://finance-ai-backend-q477.onrender.com/api/budget-analytics/",
           {
             headers: {
               Authorization:
@@ -86,7 +86,7 @@ function BudgetTracker({
     try {
 
       await axios.post(
-        "http://127.0.0.1:8000/api/budgets/",
+        "https://finance-ai-backend-q477.onrender.com/api/budgets/",
         {
           category: category,
           monthly_limit:
@@ -135,7 +135,7 @@ function BudgetTracker({
       try {
 
         await axios.delete(
-          `http://127.0.0.1:8000/api/budgets/delete/${id}/`,
+          `https://finance-ai-backend-q477.onrender.com/api/budgets/delete/${id}/`,
           {
             headers: {
               Authorization:
@@ -172,7 +172,7 @@ function BudgetTracker({
       try {
 
         await axios.patch(
-          `http://127.0.0.1:8000/api/budgets/update/${id}/`,
+          `https://finance-ai-backend-q477.onrender.com/api/budgets/update/${id}/`,
           {
             category:
               editData.category,

@@ -33,7 +33,7 @@ function AIRecommendation({ refresh }) {
 
         const response =
           await axios.get(
-            "http://127.0.0.1:8000/api/ai/",
+            "https://finance-ai-backend-q477.onrender.com/api/ai/",
             {
               headers: {
                 Authorization:

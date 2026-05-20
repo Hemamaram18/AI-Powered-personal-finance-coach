@@ -56,7 +56,7 @@ function GoalTracker({
 
       const response =
         await axios.get(
-          "http://127.0.0.1:8000/api/goals/",
+          "https://finance-ai-backend-q477.onrender.com/api/goals/",
           {
             headers: {
               Authorization:
@@ -89,7 +89,7 @@ function GoalTracker({
         localStorage.getItem("token");
 
       await axios.post(
-        "http://127.0.0.1:8000/api/goals/",
+        "https://finance-ai-backend-q477.onrender.com/api/goals/",
         {
           goal_name: goalName,
           target_amount: targetAmount,
@@ -142,7 +142,7 @@ function GoalTracker({
         localStorage.getItem("token");
 
       await axios.delete(
-        `http://127.0.0.1:8000/api/goals/delete/${id}/`,
+        `https://finance-ai-backend-q477.onrender.com/api/goals/delete/${id}/`,
         {
           headers: {
             Authorization:
@@ -180,7 +180,7 @@ function GoalTracker({
         localStorage.getItem("token");
 
       await axios.patch(
-        `http://127.0.0.1:8000/api/goals/update/${id}/`,
+        `https://finance-ai-backend-q477.onrender.com/api/goals/update/${id}/`,
         {
           goal_name:
             editData.goal_name,

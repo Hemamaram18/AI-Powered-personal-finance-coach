@@ -42,7 +42,7 @@ function Dashboard() {
 
       const response = await axios.get(
 
-        "http://127.0.0.1:8000/api/dashboard/",
+        "https://finance-ai-backend-q477.onrender.com/api/dashboard/",
 
         {
           headers: {

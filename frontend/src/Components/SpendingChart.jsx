@@ -32,7 +32,7 @@ function SpendingChart({ refresh }) {
 
         const response =
           await axios.get(
-            "http://127.0.0.1:8000/api/chart-data/",
+            "https://finance-ai-backend-q477.onrender.com/api/chart-data/",
             {
               headers: {
                 Authorization:

@@ -10,7 +10,7 @@ function FraudAlert() {
   // FETCH FRAUD DATA
   useEffect(() => {
 
-    fetch("http://127.0.0.1:8000/api/fraud-detection/")
+    fetch("https://finance-ai-backend-q477.onrender.com/api/fraud-detection/")
       .then((response) => response.json())
       .then((data) => {
 

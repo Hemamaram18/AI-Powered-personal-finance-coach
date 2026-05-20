@@ -60,7 +60,7 @@ function TransactionList({
 
       const response =
         await axios.get(
-          "http://127.0.0.1:8000/api/transactions/",
+          "https://finance-ai-backend-q477.onrender.com/api/transactions/",
           {
             headers: {
               Authorization:
@@ -157,7 +157,7 @@ function TransactionList({
           );
 
         await axios.delete(
-          `http://127.0.0.1:8000/api/transactions/delete/${id}/`,
+          `https://finance-ai-backend-q477.onrender.com/api/transactions/delete/${id}/`,
           {
             headers: {
               Authorization:
@@ -203,7 +203,7 @@ function TransactionList({
           );
 
         await axios.patch(
-          `http://127.0.0.1:8000/api/transactions/update/${id}/`,
+          `https://finance-ai-backend-q477.onrender.com/api/transactions/update/${id}/`,
           {
             merchant:
               editData.merchant,
